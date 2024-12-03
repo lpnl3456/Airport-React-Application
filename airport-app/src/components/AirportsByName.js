@@ -7,6 +7,7 @@ const AirportsByName = () => {
     const [airports, setAirports] = useState([]);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    
 
     const handleSearch = async () => {
         setLoading(true);

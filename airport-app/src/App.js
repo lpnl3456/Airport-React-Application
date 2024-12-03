@@ -43,49 +43,10 @@
           <Routes>
               <Route path="/airportlist" element={<AirPortList airports={airports}/>} />
               <Route path="/airportsbyname" element={<AirportsByName/>}/>
+              <Route path="/addAircraft" element={<AddingAricraft />} />
           </Routes>
         </div>
     );
 }
 
 export default App;
-
-
-   //   let flights = ["New York"];
-  //   let flightInfo = [];
-
-  //   const [airports, setAirports] = useState([]);
-
-  //   const loadAirports = useCallback(async () => {
-  //       try {
-  //           const airportData = await fetchAirports();
-  //           setAirports(airportData);
-  //       } catch (error) {
-  //           console.error('Error loading books:', error);
-  //       }
-  //   }, []);
-
-  //   useEffect(() => {
-  //     loadAirports();
-  //   }, [loadAirports]);
-
-    
-    
-
-
-     return (
-     <div>
-     <Router>
-      <Header />
-      <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/airports" element={<AirPort />} />
-      <Route path="/addAircraft" element={<AddingAricraft />} />
-      </Routes>
-
-      </Router>
-      </div>
-
-     );
-   }
-   export default App;

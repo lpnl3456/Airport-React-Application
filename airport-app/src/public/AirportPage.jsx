@@ -40,19 +40,19 @@ const AirportPage = ()=>{
         <h3>Flights</h3>
         <h3>Landings</h3>
         {loading && <p>Loading...</p>}
-        {landing.length >0 ?(
-         landing.map((flight) =>(
-        
-        
-         <p>
-         {flight.id}
-         {flight.landingLocation}
-         </p>
-         
-         
-        ))):(
-            !loading && <p> Please search Airport</p>
-        )}
+{/*         {landing.length >0 ?( */}
+{/*          landing.map((flight) =>( */}
+{/*          */}
+{/*          */}
+{/*          <p> */}
+{/*          {flight.id} */}
+{/*          {flight.landingLocation} */}
+{/*          </p> */}
+{/*           */}
+{/*           */}
+{/*         ))):( */}
+{/*             !loading && <p> Please search Airport</p> */}
+{/*         )} */}
         <h3>Take Off</h3>
         </div>
         </>

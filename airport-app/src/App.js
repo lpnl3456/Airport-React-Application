@@ -1,6 +1,7 @@
    import './App.css';
    import HomePage from "./public/Homepage/Homepage"
    import AirPort from "./public/AirportPage"
+   import AddingAricraft from "./public/AddingAircraft"
    import axios from "axios";
    import Header from "./public/Header"
    import { useEffect, useState, useCallback } from "react";
@@ -71,16 +72,20 @@ export default App;
     
     
 
-  //    return (
-  //    <div>
-  //    <Router>
-  //     <Header />
-  //     <Routes>
-  //     <Route path="/" element={<HomePage />} />
-  //     <Route path="/airports" element={<AirPort />} />
-  //     </Routes>
 
-  //     </Router>
-  //     </div>
+     return (
+     <div>
+     <Router>
+      <Header />
+      <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/airports" element={<AirPort />} />
+      <Route path="/addAircraft" element={<AddingAricraft />} />
+      </Routes>
 
-  //    );
+      </Router>
+      </div>
+
+     );
+   }
+   export default App;

@@ -12,8 +12,9 @@ const AirportsByName = () => {
         setLoading(true);
         setError('');
         try {
-            const response = await axios.get(`${BASE_URL}/airport/?name=${name}`);
-            setAirports(response.data);
+            const response = await axios.get(`${BASE_URL}/searchAirportByName?name=${name}`);
+            console.log(response.data);
+            setAirports([response.data]);
         } catch (error) {
             console.error('There was an error fetching the airport name!', error);
             setError('Airport not found');
@@ -22,7 +23,7 @@ const AirportsByName = () => {
             setLoading(false);
         }
     };
-
+    console.log(airports.length)
     return (
         <div>
             <h1>Search for an Airport</h1>
@@ -35,16 +36,14 @@ const AirportsByName = () => {
             <button onClick={handleSearch}>Search</button>
             {loading && <p>Loading...</p>}
             {error && <p style={{ color: 'red' }}>{error}</p>}
-            {airports.length > 0 ? (
+            {
                 airports.map(airport => (
                     <div className="airport-card" key={airport.id}>
                         <h2>{airport.name}</h2>
                         <p>{airport.code}</p>
                     </div>
                 ))
-            ) : (
-                !loading && <p>Please Enter An Airport.</p>
-            )}
+            }
         </div>
     );
 };

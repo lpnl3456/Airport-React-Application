@@ -9,7 +9,7 @@ const AirportPage = ()=>{
     let searchAirport = async ()=> {
         setLoading(true);
         try {
-            const response = await axios.get(`${BASE_URL}/landing/airport/Austin`); 
+            const response = await axios.get(`${BASE_URL}/landing/airport/${airportName}`); 
             console.log(response.data)
             setLanding(response.data);
             console.log(landing)

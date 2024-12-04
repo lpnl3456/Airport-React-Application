@@ -2,6 +2,7 @@
    import HomePage from "./public/Homepage/Homepage"
    import AirPort from "./public/AirportPage"
    import AddingAricraft from "./public/AddingAircraft"
+   import AddingAirPort from "./public/AddingAirport"
    import axios from "axios";
    import Header from "./public/Header"
    import { useEffect, useState, useCallback } from "react";
@@ -44,6 +45,7 @@
               <Route path="/airportlist" element={<AirPortList airports={airports}/>} />
               <Route path="/airportsbyname" element={<AirportsByName/>}/>
               <Route path="/addAircraft" element={<AddingAricraft />} />
+              <Route path="/addAirport" element={<AddingAirPort />} />
           </Routes>
         </div>
     );

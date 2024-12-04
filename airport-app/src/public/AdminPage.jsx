@@ -12,6 +12,8 @@ const AdminPage = (adminPage )=>{
 
          <br/>
         <Link to ="/addAircraft">Add Aircraft</Link>
+        <br/>
+        <Link to ="/addFlight">Add Flight</Link>
        </div>
 
         )

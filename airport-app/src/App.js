@@ -10,6 +10,7 @@
    import {BASE_URL} from "./utils/config"
    import AirPortList from './components/airportlist';
    import AirportsByName from './components/AirportsByName'
+import AddingAirPort from './public/AddingAirport';
 
     
    function App() {
@@ -43,6 +44,7 @@
           <Routes>
               <Route path="/airportlist" element={<AirPortList airports={airports}/>} />
               <Route path="/airportsbyname" element={<AirportsByName/>}/>
+              <Route path="/addairport" element={<AddingAirPort/>}/>
           </Routes>
         </div>
     );

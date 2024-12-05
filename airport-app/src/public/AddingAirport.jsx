@@ -59,6 +59,7 @@ import {BASE_URL} from "../utils/config";
                 code: code,
                 city: {name: cityName},
                 gates: gateList
+                // help
 
             };
 

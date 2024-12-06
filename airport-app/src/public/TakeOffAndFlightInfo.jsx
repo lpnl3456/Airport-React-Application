@@ -2,7 +2,7 @@ const TakeOffAndFlightInfo = ({flights})=>{
     return(
         <>
         
-       {flights.legnth >0 ?(
+       {flights.length >0 ?(
          flights.map((flight) =>(
         <div>
         

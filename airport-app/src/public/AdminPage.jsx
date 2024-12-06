@@ -7,13 +7,14 @@ const AdminPage = (adminPage )=>{
     return(
        <div>
            <h2>Admin Page</h2>
-           <BackButton onClick = {() => {
-                     navigate(-1)}}/>
 
          <br/>
-        <Link to ="/addAircraft">Add Aircraft</Link>
+
+         <a className="navLink" href="/addAircraft"><button>Add Aircraft</button></a>
         <br/>
-        <Link to ="/addFlight">Add Flight</Link>
+        <a className="navLink" href="/addAirport"><button>Add Airport</button></a>
+        <br/>
+        <a className="navLink" href="/addFlight"><button>Add Flight</button></a>
        </div>
 
         )

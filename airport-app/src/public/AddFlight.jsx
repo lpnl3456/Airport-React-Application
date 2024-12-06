@@ -95,8 +95,6 @@ const Header = (header )=>{
     return(
        <div>
 
-                             <BackButton onClick = {() => {
-                                       navigate(-1)}}/>
                           <h1>Create New Aircraft</h1>
                           <form onSubmit={handleSubmit}>
                               <div>

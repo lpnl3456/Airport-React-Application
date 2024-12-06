@@ -11,6 +11,7 @@
    import {BASE_URL} from "./utils/config"
    import AirPortList from './components/airportlist';
    import AdminPage from './public/AdminPage';
+   import AddFlight from './public/AddFlight';
    import AirportsByName from './components/AirportsByName'
 
     
@@ -40,7 +41,9 @@
               <Route path="/airportsbyname" element={<AirportsByName/>}/>
               <Route path="/adminPage" element={<AdminPage />} />
               <Route path="/addAircraft" element={<AddingAricraft />} />
+              <Route path="/addFlight" element={<AddFlight />} />
               <Route path="/addAirport" element={<AddingAirPort />} />
+
           </Routes>
         </div>
     );

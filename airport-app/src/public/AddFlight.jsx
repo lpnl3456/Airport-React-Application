@@ -9,9 +9,11 @@ const Header = (header )=>{
 
      const [takeOffTime, setTakingOffTime] = useState('');
      const [takingOffAirportName, setTakingOffAirportName] = useState('');
+     const [takingOffGate, setTakingOffGate] = useState('');
 
      const [landingTime, setLandingTime] = useState('');
      const [landingAirportName, setLandingAirportName] = useState('');
+     const [landingGate, setLandingGate] = useState('');
 
 
      const [errors, setErrors] = useState({});
@@ -49,11 +51,8 @@ const Header = (header )=>{
 
          const newFlight = {
              airCraft: {
-                 airCraft_id: parseInt(aircraftID),
-                 "airCraft_id": 1,
-                 type: "Airbus A320",
-                 airlineName: "pal",
-                 numberOfPass: 100,
+                 airCraft_id: aircraftID,
+
              },
          Passengers: null,
              takeOff: {
@@ -62,6 +61,7 @@ const Header = (header )=>{
 
                      },
                      takeOffTime: takeOffTime,
+                     gate: takingOffGate,
                      airCraft: {
                           aircraftID: aircraftID,
                      },
@@ -73,6 +73,7 @@ const Header = (header )=>{
 
                  },
                      landingTime: landingTime,
+                     gate: landingGate,
                      airCraft: {
                            aircraftID: aircraftID,
                      }
@@ -97,7 +98,7 @@ const Header = (header )=>{
 
                              <BackButton onClick = {() => {
                                        navigate(-1)}}/>
-                          <h1>Create New Aircraft</h1>
+                          <h1>Create New Flight</h1>
                           <form onSubmit={handleSubmit}>
                               <div>
                                   <label>Aircraft ID:</label>
@@ -109,7 +110,10 @@ const Header = (header )=>{
                                   />
                                   {errors.type && <p style={{ color: 'red' }}>{errors.aircraftID}</p>}
                               </div>
-
+                               <br/>
+                               <h3>Taking Off date</h3>
+                               <hr/>
+                               <br/>
                                <div>
                                     <label>Take Off Time:</label>
                                     <input
@@ -131,7 +135,21 @@ const Header = (header )=>{
                                     />
                                     {errors.numPass && <p style={{ color: 'red' }}>{errors.takingOffAirportName}</p>}
                                 </div>
+                                <div>
+                                 <label>Taking Off Gate:</label>
+                                    <input
+                                        type="text"
+                                        value={takingOffGate}
+                                        onChange={(e) => setTakingOffGate(e.target.value)}
+                                        required
+                                    />
+                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.takingOffGate}</p>}
+                                </div>
 
+                                <br/>
+                                <h3>Landing data</h3>
+                                <hr/>
+                                <br/>
                                 <div>
                                     <label>Landing Time:</label>
                                     <input
@@ -153,6 +171,19 @@ const Header = (header )=>{
                                     />
                                     {errors.numPass && <p style={{ color: 'red' }}>{errors.landingAirportName}</p>}
                                 </div>
+
+                                <div>
+                                    <label>Landing Gate:</label>
+                                    <input
+                                        type="text"
+                                        value={landingGate}
+                                        onChange={(e) => setLandingGate(e.target.value)}
+                                        required
+                                    />
+                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.landingGate}</p>}
+                                </div>
+
+
 
                               <div>
                               <button type="submit">Add Flight</button>

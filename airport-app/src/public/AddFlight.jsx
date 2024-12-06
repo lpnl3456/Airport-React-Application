@@ -5,36 +5,93 @@ import BackButton from './BackButton';
 import {  useNavigate } from "react-router-dom";
 
 const Header = (header )=>{
-    const [type, setType] = useState('');
-         const [aircraftID, setAirCraftID] = useState('');
-         const [aircraftName, setAirCraftName] = useState('');
-         const [airlineName, setAriLineName] = useState('');
-         const [numPass, setNumPass] = useState('');
+     const [aircraftID, setAirCraftID] = useState('');
 
-         const [takingOffID, setTakingOffId] = useState('');
-         const [takeOffLocation, setTakingOffLocation] = useState('');
-         const [takingOffAirportName, setTakingOffAirportName] = useState('');
-         const [takingOffAirportCode, setTakingOffAirportCode] = useState('');
-         const [takingOffAirportGate, setTakingOffAirportGate] = useState([]);
-         const [takingOffCityName, setTakingOffCityName] = useState('');
-         const [takingOffCityState, setTakingOffCityState] = useState('');
-         const [takingOffCityPop, setTakingOffCityPop] = useState('');
+     const [takeOffTime, setTakingOffTime] = useState('');
+     const [takingOffAirportName, setTakingOffAirportName] = useState('');
 
-         const [landingID, setLandingId] = useState('');
-         const [landingLocation, setLandingLocation] = useState('');
-         const [landingAirportName, setLandingAirportName] = useState('');
-         const [landingAirportCode, setLandingAirportCode] = useState('');
-         const [landingAirportGate, setLandingAirportGate] = useState([]);
-         const [landingCityName, setLandingCityName] = useState('');
-         const [landingCityState, setLandingCityState] = useState('');
-         const [landingCityPop, setLandingCityPop] = useState('');
+     const [landingTime, setLandingTime] = useState('');
+     const [landingAirportName, setLandingAirportName] = useState('');
 
-         const [errors, setErrors] = useState({});
-         const navigate = useNavigate();
 
-         const handleSubmit = (event) => {
-                 event.preventDefault();
+     const [errors, setErrors] = useState({});
+     const navigate = useNavigate();
+
+//          const validate = () => {
+//                  const errors = {};
+//                  if (!aircraftID.trim()) {
+//                      errors.title = 'Aircraft Id is required';
+//                  }
+//                  if (!aircraftName.trim()) {
+//                      errors.authorName = 'Aircraft name is required';
+//                  }
+//                  if (!airlineName.trim()) {
+//                      errors.publisherName = 'Airline name is required';
+//                  }
+//                  if (!numPass.trim()) {
+//                      errors.publisherAddress = 'Number of passengers for the aircraft is required';
+//                  }
+//                  if (!takeOffLocation.trim()) {
+//                      errors.isbn = 'The take off date is required';
+//                  }
+//                  if (!takingOffAirportName.trim()) {
+//                       errors.isbn = 'The airport for the take off is required';
+//                  }
+//                  if (!takingOffAirportName.trim()) {
+//                        errors.isbn = 'The airport for the take off is required';
+//                 }
+//                  return errors;
+//              };
+
+     const handleSubmit = (event) => {
+         event.preventDefault();
+         console.log(aircraftID);
+
+         const newFlight = {
+             airCraft: {
+                 airCraft_id: parseInt(aircraftID),
+                 "airCraft_id": 1,
+                 type: "Airbus A320",
+                 airlineName: "pal",
+                 numberOfPass: 100,
+             },
+         Passengers: null,
+             takeOff: {
+                     takeOffLocation: {
+                         name: takingOffAirportName,
+
+                     },
+                     takeOffTime: takeOffTime,
+                     airCraft: {
+                          aircraftID: aircraftID,
+                     },
+                 },
+
+                landing: {
+                    landingLocation: {
+                        name: landingAirportName,
+
+                 },
+                     landingTime: landingTime,
+                     airCraft: {
+                           aircraftID: aircraftID,
+                     }
                  }
+
+
+             }
+         console.log(newFlight);
+
+         axios.post(`${BASE_URL}/flight_details`, newFlight)
+             .then(response => {
+                 console.log('flight created successfully:', response.data);
+             })
+
+             .catch(error => {
+                 console.error('There was an error creating the flight!', error);
+             });
+
+     }
     return(
        <div>
 
@@ -46,70 +103,29 @@ const Header = (header )=>{
                                   <label>Aircraft ID:</label>
                                   <input
                                       type="text"
-                                      value={type}
-                                      onChange={(e) => setType(e.target.value)}
+                                      value={aircraftID}
+                                      onChange={(e) => setAirCraftID(e.target.value)}
                                       required
                                   />
-                                  {errors.type && <p style={{ color: 'red' }}>{errors.type}</p>}
+                                  {errors.type && <p style={{ color: 'red' }}>{errors.aircraftID}</p>}
                               </div>
-                             <div>
-                                    <label>Type:</label>
-                                    <input
-                                        type="text"
-                                        value={type}
-                                        onChange={(e) => setType(e.target.value)}
-                                        required
-                                    />
-                                    {errors.type && <p style={{ color: 'red' }}>{errors.type}</p>}
-                                </div>
-                                <div>
-                                    <label>Air Line Name:</label>
-                                    <input
-                                        type="text"
-                                        value={airlineName}
-                                        onChange={(e) => setAriLineName(e.target.value)}
-                                        required
-                                    />
-                                    {errors.airlineName && <p style={{ color: 'red' }}>{errors.airlineName}</p>}
-                                </div>
-                                <div>
-                                    <label>Number Of Passengers:</label>
-                                    <input
-                                        type="text"
-                                        value={numPass}
-                                        onChange={(e) => setNumPass(e.target.value)}
-                                        required
-                                    />
-                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.numPass}</p>}
-                                </div>
 
-                                <div>
-                                    <label>Taking Off ID:</label>
+                               <div>
+                                    <label>Take Off Time:</label>
                                     <input
                                         type="text"
-                                        value={numPass}
-                                        onChange={(e) => setTakingOffId(e.target.value)}
+                                        value={takeOffTime}
+                                        onChange={(e) => setTakingOffTime(e.target.value)}
                                         required
                                     />
-                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.takingOffID}</p>}
-                                </div>
-
-                                <div>
-                                    <label>Take Off Location:</label>
-                                    <input
-                                        type="text"
-                                        value={numPass}
-                                        onChange={(e) => setTakingOffLocation(e.target.value)}
-                                        required
-                                    />
-                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.takingOffLocation}</p>}
-                                </div>
+                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.takeOffTime}</p>}
+                               </div>
 
                                 <div>
                                     <label>Taking Off Airport Name:</label>
                                     <input
                                         type="text"
-                                        value={numPass}
+                                        value={takingOffAirportName}
                                         onChange={(e) => setTakingOffAirportName(e.target.value)}
                                         required
                                     />
@@ -117,125 +133,27 @@ const Header = (header )=>{
                                 </div>
 
                                 <div>
-                                    <label>Taking Off Airport Code:</label>
+                                    <label>Landing Time:</label>
                                     <input
                                         type="text"
-                                        value={numPass}
-                                        onChange={(e) => setTakingOffAirportCode(e.target.value)}
+                                        value={landingTime}
+                                        onChange={(e) => setLandingTime(e.target.value)}
                                         required
                                     />
-                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.takingOffAirportCode}</p>}
-                                </div>
-
-                                <div>
-                                    <label>Taking Off City Name:</label>
-                                    <input
-                                        type="text"
-                                        value={numPass}
-                                        onChange={(e) => setTakingOffCityName(e.target.value)}
-                                        required
-                                    />
-                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.takingOffCityName}</p>}
-                                </div>
-
-                                <div>
-                                    <label>Taking Off City Pop:</label>
-                                    <input
-                                        type="text"
-                                        value={numPass}
-                                        onChange={(e) => setTakingOffCityPop(e.target.value)}
-                                        required
-                                    />
-                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.takingOffCityPop}</p>}
-                                </div>
-
-                                <div>
-                                    <label>Taking Off City State:</label>
-                                    <input
-                                        type="text"
-                                        value={numPass}
-                                        onChange={(e) => setTakingOffCityState(e.target.value)}
-                                        required
-                                    />
-                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.takingOffCityState}</p>}
-                                </div>
-
-                                <div>
-                                    <label>Landing ID:</label>
-                                    <input
-                                        type="text"
-                                        value={numPass}
-                                        onChange={(e) => setLandingId(e.target.value)}
-                                        required
-                                    />
-                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.landingID}</p>}
-                                </div>
-
-                                <div>
-                                    <label>Landing Location:</label>
-                                    <input
-                                        type="text"
-                                        value={numPass}
-                                        onChange={(e) => setLandingLocation(e.target.value)}
-                                        required
-                                    />
-                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.landingLocation}</p>}
+                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.landingTime}</p>}
                                 </div>
 
                                 <div>
                                     <label>Landing Airport Name:</label>
                                     <input
                                         type="text"
-                                        value={numPass}
+                                        value={landingAirportName}
                                         onChange={(e) => setLandingAirportName(e.target.value)}
                                         required
                                     />
                                     {errors.numPass && <p style={{ color: 'red' }}>{errors.landingAirportName}</p>}
                                 </div>
 
-                                <div>
-                                    <label>Landing Airport Code:</label>
-                                    <input
-                                        type="text"
-                                        value={numPass}
-                                        onChange={(e) => setLandingAirportCode(e.target.value)}
-                                        required
-                                    />
-                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.landingAirportCode}</p>}
-                                </div>
-
-                                <div>
-                                    <label>Landing City Name:</label>
-                                    <input
-                                        type="text"
-                                        value={numPass}
-                                        onChange={(e) => landingCityName(e.target.value)}
-                                        required
-                                    />
-                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.landingCityName}</p>}
-                                </div>
-
-                                <div>
-                                    <label>Landing City Pop:</label>
-                                    <input
-                                        type="text"
-                                        value={numPass}
-                                        onChange={(e) => setLandingCityPop(e.target.value)}
-                                        required
-                                    />
-                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.landingCityPop}</p>}
-                                </div>
-
-                                <div>
-                                    <label>Landing City State:</label>
-                                    <input
-                                        type="text"
-                                        value={numPass}
-                                        onChange={(e) => setLandingCityState(e.target.value)}
-                                        required
-                                    />
-                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.landingCityState}</p>}
-                                </div>
                               <div>
                               <button type="submit">Add Flight</button>
                               </div>

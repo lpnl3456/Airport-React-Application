@@ -70,23 +70,6 @@ const AirportsByName = () => {
         }
     };
 
-
-    // const searchLandings = async () => {
-    //     setLoading(true);
-    //     setError('');
-    //     try {
-    //         const response = await axios.get(`${BASE_URL}/http://localhost:8080/searchLandingByAirport?airportName=${name}`);
-    //         console.log(response.data);
-    //         setLandings(response.data);
-    //     } catch (error) {
-    //         console.error('There was an error fetching the landing airport name!', error);
-    //         setError('Landing Airport not found');
-    //         setLandings([]);
-    //     } finally {
-    //         setLoading(false);
-    //     }
-    // };
-
     
     console.log(airports.length)
     return (

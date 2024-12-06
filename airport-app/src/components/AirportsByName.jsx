@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../utils/config";
 import TakeOffByName from "./TakeOffByName"
+import LandingByName from "./LandingByName";
 
 const AirportsByName = () => {
     const [name, setName] = useState('');
@@ -20,7 +21,8 @@ const AirportsByName = () => {
             setAirports([response.data]);
             console.log("Airports " + airports)
             searchTakeOffs();
-            // searchLandings();
+            searchLandings();
+
         } catch (error) {
             console.error('There was an error fetching the airport name!', error);
             setError('Airport not found');
@@ -38,7 +40,7 @@ const AirportsByName = () => {
             const response = await axios.get(`${BASE_URL}/searchTakeOffByAirport?airportName=${name}`);
             console.log("Trying to get data")
             console.log("TakeOff data", response.data);
-            setTakeOffs([response.data]);
+            setTakeOffs(response.data);
             console.log("Takeoff data after set " + takeOffs);
         } catch (error) {
             console.error('There was an error fetching the take off airport name!', error);
@@ -53,17 +55,37 @@ const AirportsByName = () => {
         setLoading(true);
         setError('');
         try {
-            const response = await axios.get(`${BASE_URL}/http://localhost:8080/searchLandingByAirport?airportName=${name}`);
-            console.log(response.data);
-            setLandings([response.data]);
+            console.log("reading the link")
+            const response = await axios.get(`${BASE_URL}/searchLandingByAirport?airportName=${name}`);
+            console.log("Trying to get data")
+            console.log("Landing data", response.data);
+            setLandings(response.data);
+            console.log("Landing data after set " + landings);
         } catch (error) {
             console.error('There was an error fetching the landing airport name!', error);
-            setError('Landing Airport not found');
+            setError('Take off Airport not found');
             setLandings([]);
         } finally {
             setLoading(false);
         }
     };
+
+
+    // const searchLandings = async () => {
+    //     setLoading(true);
+    //     setError('');
+    //     try {
+    //         const response = await axios.get(`${BASE_URL}/http://localhost:8080/searchLandingByAirport?airportName=${name}`);
+    //         console.log(response.data);
+    //         setLandings(response.data);
+    //     } catch (error) {
+    //         console.error('There was an error fetching the landing airport name!', error);
+    //         setError('Landing Airport not found');
+    //         setLandings([]);
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // };
 
     
     console.log(airports.length)
@@ -88,6 +110,9 @@ const AirportsByName = () => {
                 ))
             }
             <TakeOffByName takeOffs={takeOffs}/> 
+            
+            <LandingByName landings={landings}/> 
+            
         </div>
     );
 };

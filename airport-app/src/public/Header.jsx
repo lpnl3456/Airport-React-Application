@@ -4,7 +4,7 @@ const Header = (header )=>{
         <div>
             <h4>Flight finder</h4>
             <nav>
-                <ul>
+                {/* <ul>
                     <li>
                         <Link to="/">Home</Link>
                     </li>
@@ -18,7 +18,7 @@ const Header = (header )=>{
                         <Link to="/addairport">Add An Airport</Link>
                     </li>
 
-                </ul>
+                </ul> */}
             </nav>
         </div>
         )

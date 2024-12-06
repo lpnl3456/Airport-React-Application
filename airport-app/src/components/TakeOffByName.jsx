@@ -1,18 +1,23 @@
 const TakeOffByName = ({takeOffs})=>{
 
-    console.log(takeOffs.takeOff_id);
     return(
+        <div>
+            <>
+                <h2>Departures</h2>
+            </>
        <> {
                 takeOffs.map(takeOff => (
                     
                     <div className="takeOff-card" key={takeOff.takeOff_id}>
-                        <h2>{takeOff.takeOffLocation}</h2>
+                        <p>{takeOff.takeOffLocation.city.name}</p>
                         <p>{takeOff.takeOffTime}</p>
                         <p>{takeOff.aircraft}</p>
+                        <p>{takeOff.gate}</p>
                     </div>
                 ))
             }
         </>
+        </div>
 
         )
     }

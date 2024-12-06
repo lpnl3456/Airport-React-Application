@@ -10,6 +10,7 @@
    import {fetchAirports} from "./utils/apicalls";
    import {BASE_URL} from "./utils/config"
    import AirPortList from './components/airportlist';
+   import AdminPage from './public/AdminPage';
    import AirportsByName from './components/AirportsByName'
 
     
@@ -30,20 +31,14 @@
     }, [loadAirports]);
 
     return (
-        // <div>
-        //     <h1>Airports</h1>
-        //         {airports.map(airport => (
-        //           <div key={airport.id}>
-        //             <p>{airport.name}</p>
-        //             <p>{airport.code}</p>
-        //           </div>
-        //         ))}
-        // </div>
+        //
         <div className='App'>
           <Header/>
           <Routes>
+              <Route path="/" element={<HomePage />} />
               <Route path="/airportlist" element={<AirPortList airports={airports}/>} />
               <Route path="/airportsbyname" element={<AirportsByName/>}/>
+              <Route path="/adminPage" element={<AdminPage />} />
               <Route path="/addAircraft" element={<AddingAricraft />} />
               <Route path="/addAirport" element={<AddingAirPort />} />
           </Routes>

@@ -1,12 +1,15 @@
 import React, {useState} from 'react';
 import axios from "axios";
 import {BASE_URL} from "../utils/config";
+import BackButton from './BackButton';
+import {  useNavigate } from "react-router-dom";
 
 const AddingAirCraft = (addingAirCraft )=>{
      const [type, setType] = useState('');
      const [airlineName, setAriLineName] = useState('');
      const [numPass, setNumPass] = useState('');
      const [errors, setErrors] = useState({});
+     const navigate = useNavigate();
 
     const validate = () => {
             const errors = {};
@@ -57,6 +60,9 @@ const AddingAirCraft = (addingAirCraft )=>{
 
     return(
        <div>
+
+                      <BackButton onClick = {() => {
+                                navigate(-1)}}/>
                    <h1>Create New Aircraft</h1>
                    <form onSubmit={handleSubmit}>
                        <div>

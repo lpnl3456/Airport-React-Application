@@ -30,8 +30,10 @@ import {BASE_URL} from "../utils/config";
                 }
                 return gate;
             });
-            
+            console.log(gateList);
             setGateList(newGateList);
+            console.log(gateList);
+
         };
     
         const addGate = () => {
@@ -56,9 +58,12 @@ import {BASE_URL} from "../utils/config";
                 name: airportName,
                 code: code,
                 city: {name: cityName},
-                gate: gateList
+                gates: gateList
+                // help
 
             };
+
+            console.log("This is new airport" + newAirport)
 
             axios.post(`${BASE_URL}/airport`, newAirport)
                 .then(response => {
@@ -67,6 +72,7 @@ import {BASE_URL} from "../utils/config";
                     setAirportName("");
                     setCode("");
                     setCityName("");
+                    setGateList([{gateName: ""}]);
                     setErrors({});
                 })
 

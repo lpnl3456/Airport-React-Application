@@ -2,6 +2,7 @@ import React from "react";
 
 function AirPortList({airports}) {
     console.log(airports)
+    //
     
     return (
         <div className="airport-list">
@@ -12,6 +13,7 @@ function AirPortList({airports}) {
                 </div>
             ))}
         </div>
+
     );
 }
 

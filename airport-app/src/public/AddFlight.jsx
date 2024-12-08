@@ -61,7 +61,8 @@ const Header = (header )=>{
 
                      },
                      takeOffTime: takeOffTime,
-                     gate: takingOffGate,
+                     gate: {
+                         gateName: takingOffGate},
                      airCraft: {
                           aircraftID: aircraftID,
                      },
@@ -73,7 +74,8 @@ const Header = (header )=>{
 
                  },
                      landingTime: landingTime,
-                     gate: landingGate,
+                     gate: {gateName: landingGate
+                         },
                      airCraft: {
                            aircraftID: aircraftID,
                      }

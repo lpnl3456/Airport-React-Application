@@ -34,7 +34,7 @@ const AirportsByName = () => {
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Enter airport name"
             />
-            <button onClick={handleSearch}>Search</button>
+            <button className="searchButton" onClick={handleSearch}>Search</button>
             {loading && <p>Loading...</p>}
             {error && <p style={{ color: 'red' }}>{error}</p>}
             {

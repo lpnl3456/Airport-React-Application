@@ -98,9 +98,13 @@ const Header = (header )=>{
     return(
        <div>
 
+
+                          <h1>Create New Aircraft</h1>
+
                              <BackButton onClick = {() => {
                                        navigate(-1)}}/>
                           <h1>Create New Flight</h1>
+
                           <form onSubmit={handleSubmit}>
                               <div>
                                   <label>Aircraft ID:</label>

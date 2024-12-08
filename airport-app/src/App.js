@@ -14,6 +14,7 @@
    import AddFlight from './public/AddFlight';
    import AirportsByName from './components/AirportsByName'
 
+
     
    function App() {
     const [airports, setAirports] = useState([]);
@@ -43,7 +44,6 @@
               <Route path="/addAircraft" element={<AddingAricraft />} />
               <Route path="/addFlight" element={<AddFlight />} />
               <Route path="/addAirport" element={<AddingAirPort />} />
-
           </Routes>
         </div>
     );

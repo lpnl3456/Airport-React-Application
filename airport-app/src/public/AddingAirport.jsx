@@ -114,7 +114,10 @@ import {BASE_URL} from "../utils/config";
 
 
                        <div>
+                        <br />
                     <label>Gates:</label>
+                    <br />
+                    <br />
                     {gateList.map((gate, index) => (
                         <div key={index}>
                             <input

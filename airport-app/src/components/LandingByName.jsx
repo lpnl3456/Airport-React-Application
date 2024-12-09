@@ -9,12 +9,17 @@ const LandingByName = ({landings})=>{
         </>
        <> {
             
-            landings.map(landing => (
+            landings.map(landingDetails => (
                     
-                    <div className="landing-card" key={landing.landing_id}>
-                        <p>{landing.landingLocation.city.name}</p>
-                        <p>{landing.landingTime}</p>
-                        <p>{landing.aircraft}</p>
+                    <div className="landing-card" key={landingDetails.id}>
+                        <p>{landingDetails.landing.landingLocation.city.name}</p>
+                        <p>{landingDetails.landing.landingTime}</p>
+                        <p>{landingDetails.landing.aircraft}</p>
+                        <p>To:</p>
+                        <p>{landingDetails.takeOff.takeOffLocation.name}</p>
+                        <p>{landingDetails.takeOff.takeOffTime}</p>
+                        <p>{landingDetails.takeOff.aircraft}</p>
+                        <p>{landingDetails.takeOff.gate}</p>
                     </div>
                 ))
             }

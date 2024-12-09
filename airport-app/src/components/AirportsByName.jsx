@@ -37,7 +37,7 @@ const AirportsByName = () => {
         setError('');
         try {
             console.log("reading the link")
-            const response = await axios.get(`${BASE_URL}/searchTakeOffByAirport?airportName=${name}`);
+            const response = await axios.get(`${BASE_URL}/find_take_off_by_airportName/${name}`);
             console.log("Trying to get data")
             console.log("TakeOff data", response.data);
             setTakeOffs(response.data);
@@ -56,7 +56,7 @@ const AirportsByName = () => {
         setError('');
         try {
             console.log("reading the link")
-            const response = await axios.get(`${BASE_URL}/searchLandingByAirport?airportName=${name}`);
+            const response = await axios.get(`${BASE_URL}/find_landing_by_airportName/${name}`);
             console.log("Trying to get data")
             console.log("Landing data", response.data);
             setLandings(response.data);

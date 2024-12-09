@@ -1,18 +1,23 @@
 const TakeOffByName = ({takeOffs})=>{
-
+console.log("Take Off map Page: " + takeOffs.takeOff);
     return(
         <div>
             <>
                 <h2>Departures</h2>
             </>
        <> {
-                takeOffs.map(takeOff => (
-                    
-                    <div className="takeOff-card" key={takeOff.takeOff_id}>
-                        <p>{takeOff.takeOffLocation.city.name}</p>
-                        <p>{takeOff.takeOffTime}</p>
-                        <p>{takeOff.aircraft}</p>
-                        <p>{takeOff.gate}</p>
+                takeOffs.map(takeOffDetails => (
+
+                    <div className="takeOff-card" key={takeOffDetails.flight_id}>
+                        <p>{takeOffDetails.takeOff.takeOffLocation.name}</p>
+                        <p>{takeOffDetails.takeOff.takeOffTime}</p>
+                        <p>{takeOffDetails.takeOff.aircraft}</p>
+                        <p>{takeOffDetails.takeOff.gate}</p>
+                        <p>Landing</p>
+                        <p>{takeOffDetails.landing.landingLocation.city.name}</p>
+                        <p>{takeOffDetails.landing.landingTime}</p>
+                        <p>{takeOffDetails.landing.aircraft}</p>
+                        <p>{takeOffDetails.landing.gate}</p>
                     </div>
                 ))
             }

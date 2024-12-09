@@ -92,9 +92,9 @@ const AirportsByName = () => {
                     </div>
                 ))
             }
-            <TakeOffByName takeOffs={takeOffs}/> 
+            <TakeOffByName takeOffs={takeOffs}/>
             
-            <LandingByName landings={landings}/> 
+            <LandingByName landings={landings}/>
             
         </div>
     );

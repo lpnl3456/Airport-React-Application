@@ -16,7 +16,7 @@ const LandingByName = ({landings})=>{
                         <p>{landingDetails.landing.landingTime}</p>
                         <p>{landingDetails.landing.aircraft}</p>
                         <p>To:</p>
-                        <p>{landingDetails.takeOff.takeOffLocation.name}</p>
+                        <p>{landingDetails.takeOff.takeOffLocation.city.name}</p>
                         <p>{landingDetails.takeOff.takeOffTime}</p>
                         <p>{landingDetails.takeOff.aircraft}</p>
                         <p>{landingDetails.takeOff.gate}</p>

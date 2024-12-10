@@ -1,6 +1,6 @@
 const Header = (header )=>{
     return(
-        <div>
+        <div className = "navBar">
             <h4>Flight finder</h4>
             <nav>
 

@@ -13,6 +13,7 @@
    import AirportsByName from './components/AirportsByName'
    import AddingAirPort from './components/AddingAirport';
    import AddGate from './components/AddGate';
+   import AddCity from './components/AddCity';
 
 
 
@@ -44,7 +45,8 @@
               <Route path="/addAircraft" element={<AddingAricraft />} />
               <Route path="/addFlight" element={<AddFlight />} />
               <Route path="/addAirport" element={<AddingAirPort />} />
-               <Route path="/addGate" element={<AddGate />} />
+              <Route path="/addGate" element={<AddGate />} />
+              <Route path="/addCity" element={<AddCity />} />
           </Routes>
         </div>
     );

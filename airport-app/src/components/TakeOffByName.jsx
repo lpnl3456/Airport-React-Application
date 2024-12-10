@@ -6,13 +6,18 @@ const TakeOffByName = ({takeOffs})=>{
                 <h2>Departures</h2>
             </>
        <> {
-                takeOffs.map(takeOff => (
-                    
-                    <div className="takeOff-card" key={takeOff.takeOff_id}>
-                        <p>{takeOff.takeOffLocation.city.name}</p>
-                        <p>{takeOff.takeOffTime}</p>
-                        <p>{takeOff.aircraft}</p>
-                        <p>{takeOff.gate}</p>
+                takeOffs.map(takeOffDetails => (
+
+                    <div className="takeOff-card" key={takeOffDetails.flight_id}>
+                        <h3>{takeOffDetails.takeOff.takeOffLocation.city.name}</h3>
+                        <p>{takeOffDetails.takeOff.takeOffTime}</p>
+                        <p>{takeOffDetails.takeOff.aircraft.airlineName}</p>
+                        <p>{takeOffDetails.takeOff.aircraft.type}</p>
+                        <p>{takeOffDetails.takeOff.gate.gateName}</p>
+                        <p>Landing</p>
+                        <p>{takeOffDetails.landing.landingLocation.city.name}</p>
+                        <p>{takeOffDetails.landing.landingTime}</p>
+                        <p>{takeOffDetails.landing.gate.gateName}</p>
                     </div>
                 ))
             }

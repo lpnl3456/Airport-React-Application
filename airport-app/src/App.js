@@ -14,6 +14,7 @@
    import AddingAirPort from './components/AddingAirport';
    import AddGate from './components/AddGate';
    import AddCity from './components/AddCity';
+   import AddPassenger from './components/AddPassenger';
 
 
 
@@ -47,6 +48,7 @@
               <Route path="/addAirport" element={<AddingAirPort />} />
               <Route path="/addGate" element={<AddGate />} />
               <Route path="/addCity" element={<AddCity />} />
+              <Route path="/addPassenger" element={<AddPassenger />} />
           </Routes>
         </div>
     );

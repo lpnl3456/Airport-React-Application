@@ -61,7 +61,7 @@ const AddGate = (addGate )=>{
                                onChange={(e) => setGateName(e.target.value)}
                                required
                            />
-                           {errors.type && <p style={{ color: 'red' }}>{errors.type}</p>}
+                           {errors.gateName && <p style={{ color: 'red' }}>{errors.gateName}</p>}
                        </div>
 
 

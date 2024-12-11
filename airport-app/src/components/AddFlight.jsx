@@ -19,31 +19,32 @@ const Header = (header )=>{
      const [errors, setErrors] = useState({});
      const navigate = useNavigate();
 
-//          const validate = () => {
-//                  const errors = {};
-//                  if (!aircraftID.trim()) {
-//                      errors.title = 'Aircraft Id is required';
-//                  }
-//                  if (!aircraftName.trim()) {
-//                      errors.authorName = 'Aircraft name is required';
-//                  }
-//                  if (!airlineName.trim()) {
-//                      errors.publisherName = 'Airline name is required';
-//                  }
-//                  if (!numPass.trim()) {
-//                      errors.publisherAddress = 'Number of passengers for the aircraft is required';
-//                  }
-//                  if (!takeOffLocation.trim()) {
-//                      errors.isbn = 'The take off date is required';
-//                  }
-//                  if (!takingOffAirportName.trim()) {
-//                       errors.isbn = 'The airport for the take off is required';
-//                  }
-//                  if (!takingOffAirportName.trim()) {
-//                        errors.isbn = 'The airport for the take off is required';
-//                 }
-//                  return errors;
-//              };
+         const validate = () => {
+                 const errors = {};
+                 if (!aircraftID.trim()) {
+                     errors.aircraftID = 'Aircraft Id is required';
+                 }
+                 if (!takeOffTime.trim()) {
+                     errors.takeOffTime = 'The take off date is required';
+                 }
+                 if (!takingOffAirportName.trim()) {
+                      errors.takingOffAirportName = 'The airport for the take off is required';
+                 }
+                 if (!takingOffGate.trim()) {
+                       errors.takingOffGate = 'The airport gate for the take off is required';
+                }
+
+                if (!landingTime.trim()) {
+                    errors.landingTime = 'The landing date is required';
+                }
+                if (!landingAirportName.trim()) {
+                      errors.landingAirportName = 'The airport for the landing is required';
+                 }
+                 if (!landingGate.trim()) {
+                       errors.landingGate = 'The airport gate for the landing is required';
+                }
+                 return errors;
+             };
 
      const handleSubmit = (event) => {
          event.preventDefault();
@@ -92,6 +93,15 @@ const Header = (header )=>{
 
              .catch(error => {
                  console.error('There was an error creating the flight!', error);
+
+                 setAirCraftID("");
+                 setTakingOffTime("");
+                 setTakingOffAirportName("");
+                 setTakingOffGate("");
+                 setLandingTime("");
+                 setLandingAirportName("");
+                 setLandingGate("");
+                 setErrors({});
              });
 
      }
@@ -114,7 +124,7 @@ const Header = (header )=>{
                                       onChange={(e) => setAirCraftID(e.target.value)}
                                       required
                                   />
-                                  {errors.type && <p style={{ color: 'red' }}>{errors.aircraftID}</p>}
+                                  {errors.aircraftID && <p style={{ color: 'red' }}>{errors.aircraftID}</p>}
                               </div>
                                <br/>
                                <h3>Taking Off date</h3>
@@ -128,7 +138,7 @@ const Header = (header )=>{
                                         onChange={(e) => setTakingOffTime(e.target.value)}
                                         required
                                     />
-                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.takeOffTime}</p>}
+                                    {errors.takeOffTime && <p style={{ color: 'red' }}>{errors.takeOffTime}</p>}
                                </div>
 
                                 <div>
@@ -139,7 +149,7 @@ const Header = (header )=>{
                                         onChange={(e) => setTakingOffAirportName(e.target.value)}
                                         required
                                     />
-                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.takingOffAirportName}</p>}
+                                    {errors.takingOffAirportName && <p style={{ color: 'red' }}>{errors.takingOffAirportName}</p>}
                                 </div>
                                 <div>
                                  <label>Taking Off Gate:</label>
@@ -149,7 +159,7 @@ const Header = (header )=>{
                                         onChange={(e) => setTakingOffGate(e.target.value)}
                                         required
                                     />
-                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.takingOffGate}</p>}
+                                    {errors.takingOffGate && <p style={{ color: 'red' }}>{errors.takingOffGate}</p>}
                                 </div>
 
                                 <br/>
@@ -164,7 +174,7 @@ const Header = (header )=>{
                                         onChange={(e) => setLandingTime(e.target.value)}
                                         required
                                     />
-                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.landingTime}</p>}
+                                    {errors.landingTime && <p style={{ color: 'red' }}>{errors.landingTime}</p>}
                                 </div>
 
                                 <div>
@@ -175,7 +185,7 @@ const Header = (header )=>{
                                         onChange={(e) => setLandingAirportName(e.target.value)}
                                         required
                                     />
-                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.landingAirportName}</p>}
+                                    {errors.landingAirportName && <p style={{ color: 'red' }}>{errors.landingAirportName}</p>}
                                 </div>
 
                                 <div>
@@ -186,7 +196,7 @@ const Header = (header )=>{
                                         onChange={(e) => setLandingGate(e.target.value)}
                                         required
                                     />
-                                    {errors.numPass && <p style={{ color: 'red' }}>{errors.landingGate}</p>}
+                                    {errors.landingGate && <p style={{ color: 'red' }}>{errors.landingGate}</p>}
                                 </div>
 
 

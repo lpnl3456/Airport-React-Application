@@ -14,15 +14,15 @@ const AddCity = (addCity )=>{
     const validate = () => {
             const errors = {};
             if (!name.trim()) {
-                errors.title = ' name is required';
+                errors.name = ' name is required';
             }
 
         if (!state.trim()) {
-                errors.title = 'state is required';
+                errors.state = 'state is required';
         }
 
-    if (!population.trim()) {
-                    errors.title = 'population is required';
+        if (!population.trim()) {
+                    errors.population = 'population is required';
                 }
 
             return errors;
@@ -75,7 +75,7 @@ const AddCity = (addCity )=>{
                                onChange={(e) => setName(e.target.value)}
                                required
                            />
-                           {errors.type && <p style={{ color: 'red' }}>{errors.type}</p>}
+                           {errors.name && <p style={{ color: 'red' }}>{errors.name}</p>}
                        </div>
 
                        <div>
@@ -86,7 +86,7 @@ const AddCity = (addCity )=>{
                               onChange={(e) => setState(e.target.value)}
                               required
                           />
-                          {errors.type && <p style={{ color: 'red' }}>{errors.type}</p>}
+                          {errors.state && <p style={{ color: 'red' }}>{errors.state}</p>}
                       </div>
 
                       <div>
@@ -97,7 +97,7 @@ const AddCity = (addCity )=>{
                             onChange={(e) => setPopulation(e.target.value)}
                             required
                         />
-                        {errors.type && <p style={{ color: 'red' }}>{errors.type}</p>}
+                        {errors.population && <p style={{ color: 'red' }}>{errors.population}</p>}
                     </div>
 
 

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import {  useNavigate } from "react-router-dom";
-import BackButton from './BackButton';
+
 
 const AdminPage = (adminPage )=>{
     const navigate = useNavigate();
@@ -10,11 +10,12 @@ const AdminPage = (adminPage )=>{
 
          <br/>
 
-         <a className="navLink" href="/addAircraft"><button>Add Aircraft</button></a>
+         < Link to="/addAircraft"><button>Add Aircraft</button></Link>
         <br/>
-        <a className="navLink" href="/addAirport"><button>Add Airport</button></a>
+        <Link to ="/addAirport"><button>Add Airport</button></Link>
         <br/>
-        <a className="navLink" href="/addFlight"><button>Add Flight</button></a>
+        <Link to ="/addFlight"><button>Add Flight</button></Link>
+        <Link to ="/addGate"><button>Add Gate</button></Link>
        </div>
 
         )

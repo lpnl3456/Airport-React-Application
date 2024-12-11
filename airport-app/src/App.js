@@ -1,18 +1,18 @@
    import './App.css';
-   import HomePage from "./public/Homepage/Homepage"
-   import AirPort from "./public/AirportPage"
-   import AddingAricraft from "./public/AddingAircraft"
+   import HomePage from "./components/Homepage"
+   import AddingAricraft from "./components/AddingAircraft"
    import axios from "axios";
-   import Header from "./public/Header"
+   import Header from "./components/Header"
    import { useEffect, useState, useCallback } from "react";
    import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
    import {fetchAirports} from "./utils/apicalls";
    import {BASE_URL} from "./utils/config"
    import AirPortList from './components/airportlist';
-   import AdminPage from './public/AdminPage';
-   import AddFlight from './public/AddFlight';
+   import AdminPage from './components/AdminPage';
+   import AddFlight from './components/AddFlight';
    import AirportsByName from './components/AirportsByName'
-import AddingAirPort from './public/AddingAirport';
+   import AddingAirPort from './components/AddingAirport';
+   import AddGate from './components/AddGate';
 
 
 
@@ -44,6 +44,7 @@ import AddingAirPort from './public/AddingAirport';
               <Route path="/addAircraft" element={<AddingAricraft />} />
               <Route path="/addFlight" element={<AddFlight />} />
               <Route path="/addAirport" element={<AddingAirPort />} />
+               <Route path="/addGate" element={<AddGate />} />
           </Routes>
         </div>
     );

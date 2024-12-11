@@ -65,7 +65,7 @@ const AddGate = (addGate )=>{
                        </div>
 
 
-                       <button type="submit">Add Aircraft</button>
+                       <button type="submit">Add Gate</button>
                    </form>
                </div>
 

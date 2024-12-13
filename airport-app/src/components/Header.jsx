@@ -1,15 +1,17 @@
+import { Link } from "react-router-dom";
+
 const Header = (header )=>{
     return(
         <div>
             <h4>Flight finder</h4>
             <nav>
 
-                        <a className="navLink" href="/"> <button>Home</button> </a>
-                        <a className="navLink" href="/airportlist"><button>All Airports</button></a>
+                        <Link to ="/"> <button>Home</button> </Link>
+                        <Link to ="/airportlist"><button>All Airports</button></Link>
 
-                        <a className="navLink" href="/airportsbyname"><button>Search For Airports</button></a>
+                        <Link to ="/airportsbyname"><button>Search For Airports</button></Link>
 
-                        <a className="navLink" href="/adminPage"><button>Admin</button></a>
+                        <Link to ="/adminPage"><button>Admin</button></Link>
             </nav>
         </div>
         )

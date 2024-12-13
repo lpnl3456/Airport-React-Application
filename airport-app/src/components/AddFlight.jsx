@@ -89,10 +89,6 @@ const Header = (header )=>{
          axios.post(`${BASE_URL}/flight_details`, newFlight)
              .then(response => {
                  console.log('flight created successfully:', response.data);
-             })
-
-             .catch(error => {
-                 console.error('There was an error creating the flight!', error);
 
                  setAirCraftID("");
                  setTakingOffTime("");
@@ -102,6 +98,12 @@ const Header = (header )=>{
                  setLandingAirportName("");
                  setLandingGate("");
                  setErrors({});
+             })
+
+             .catch(error => {
+                 console.error('There was an error creating the flight!', error);
+
+
              });
 
      }
